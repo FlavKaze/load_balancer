@@ -28,6 +28,7 @@ class Machine:
                 new_list.remove(each_task)
                 self.open_slots += 1
                 self.open_tasks -= 1
+        self.tasks_death_tick = new_list
     
     def up_tasks(self, amount_task, number_tasks, ttask):
         for each_task in range(number_tasks):
@@ -61,7 +62,7 @@ class LoadBalancer:
         return list_args
 
     def set_output(self, current_costs):
-        str_costs = [str(x) for x in current_costs if x != 0]
+        str_costs = [str(x) for x in current_costs]
         line = ",".join(str_costs) + "\n"
         with open(self.output_file_name, "a")as file:
             file.writelines(line)  
@@ -75,11 +76,17 @@ class LoadBalancer:
         self.ttask = self.ticks.pop(0)
         #numero maximo de usuarios por servidores
         self.umax = self.ticks.pop(0)
+
+
+    def adjust_list(self, ticks, ttask):
+        for _ in range(ttask - 1): 
+            ticks.append(0)
+        return ticks
+
     
     def process(self):
+        self.ticks =  self.adjust_list(self.ticks, self.ttask)
         for counter_tick, amount_task in enumerate(self.ticks, 1):
-            if counter_tick > 5:
-                print(counter_tick)
             machines_open_tasks = []
             if not self.open_machines and amount_task > 0:
                 self.open_machines.append(Machine(self.umax))
@@ -103,13 +110,15 @@ class LoadBalancer:
                         break
                     else:
                         break
-                # if amount_task > 0 and each_machine.open_tasks > self.umax:
-
-                machines_open_tasks.append(
-                    each_machine.open_tasks)
+                # if each_machine.open_slots == self.umax:
+                #     self.open_machines.pop(self.open_machines.index(each_machine))
+                if each_machine.open_tasks != 0:
+                    machines_open_tasks.append(
+                        each_machine.open_tasks)
 
             self.total_cost += len(machines_open_tasks)
             self.set_output(machines_open_tasks)
+        print(self.total_cost)
 
     def run(self):
         if os.path.exists("output.txt"):
