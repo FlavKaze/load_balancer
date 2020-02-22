@@ -1,0 +1,21 @@
+image: python:latest
+
+stages:
+  - adjusting
+  - test
+
+before_script:
+  - apt update -y
+  - apt upgrade -y
+
+adjusting:
+  stage: adjusting
+  script:
+    - pip install pycodestyle pydocstyle
+    - pycodestyle .
+    - pydocstyle .
+    
+test:unit:
+  stage: test
+  script:
+    - python -m unittest discover test -v
