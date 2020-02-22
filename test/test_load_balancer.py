@@ -25,3 +25,17 @@ class TestLoad(TestCase):
     def testando_se_adjust_list_retorna_a_lista_ajustada_coretamente(self):
         lista = [1,2,3,4]
         self.assertEqual(len(self.load_balancer.adjust_list(lista, 4)), 7)
+
+    def testando_se_se_o_begin_process_adequa_as_variaveis_corretamente(self):
+        lista = [1,2,3,4]
+        self.load_balancer.begin_process()
+        self.assertIsInstance(self.load_balancer.ticks, list)
+
+        # self.open_machines = []
+        # self.ticks = None
+        # self.ttask = None
+        # self.umax = None
+        # self.input_file_name = "input.txt"
+        # self.output_file_name = "output.txt"
+        # self.total_cost = 0
+        # self.last_machine_id = 0
