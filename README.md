@@ -14,9 +14,7 @@ podendo colocar varias outras linhas representando os demais numeros de tasks
 
 ex:
 4
-
 2
-
 1
 3
 0
