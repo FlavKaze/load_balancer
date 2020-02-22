@@ -1,17 +1,13 @@
-Para rodar o script load_balancer.py, pasta ter o arquivo input.txt, com no minimo 3 linhas com 3 inteiros sendo eles:  
+Para execução do script load_balancer.py, deve possuir um arquivo input.txt, com no mínimo três linhas com três números inteiros, sendo eles:  
+3, para a primeira linha  
+4, para a segunda linha e  
+5, para a terceira linha  
+Para as linhas seguintes, poderá inserir outros números inteiros.  
 
-primeira linha - 3   
-segunda linha - 4  
-terceira linha - 5  
+O número 3 representa o tamanho das tasks em ticks (>=1<=10>). O número 4 representa o tamanho da task que uma máquina pode executar simultaneamente (>=1<=10>).   
+O número 5 representa as tasks que serão executadas no primeiro tick (5 tasks). 
 
-Para as demais linhas voce pode continuar colocando outros inteiros. 
-
-O numero 3 representa o tamanha das tasks em ticks (>=1<=10>).  
-O numero 4 representa o tamanho de tasks que uma maquina porde executar simultaneamente (>=1<=10>).  
-O numero 5 representa que 5 tesks serao executadas no primeiro tick.  
-podendo colocar varias outras linhas representando os demais numeros de tasks.  
-
-ex:  
+Podendo inserir outros números inteiros nas linhas que representa os números de tasks, exemplo:   
 4  
 2  
 1  
@@ -20,3 +16,5 @@ ex:
 1  
 0  
 1  
+
+E, para obter o resultado do script, basta executar o comando python3 load_balancer.py
