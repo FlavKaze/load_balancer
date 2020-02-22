@@ -112,9 +112,13 @@ class LoadBalancer:
 
         :return: Returns a list of entries.
         """
-        with open(self.input_file_name, "r")as file:
-            lines = file.read()
-            list_args = lines.split("\n")
+        if os.path.exists(self.input_file_name):
+            with open(self.input_file_name, "r")as file:
+                lines = file.read()
+                list_args = lines.split("\n")
+        else:
+            print("The input file must be created, please read README.md")
+            exit()
 
         return list_args
 
