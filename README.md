@@ -4,7 +4,7 @@ primeira linha - 3
 segunda linha - 4  
 terceira linha - 5  
 
-Para as demais linhas vc pode continuar colocando osutros inteiros. 
+Para as demais linhas voce pode continuar colocando outros inteiros. 
 
 O numero 3 representa o tamanha das tasks em ticks (>=1<=10>).  
 O numero 4 representa o tamanho de tasks que uma maquina porde executar simultaneamente (>=1<=10>).  
