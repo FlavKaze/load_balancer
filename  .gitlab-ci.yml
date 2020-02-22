@@ -15,7 +15,7 @@ adjusting:
     - pycodestyle .
     - pydocstyle .
     
-test:unit:
-  stage: test
+run_test:
+  stage: run_test
   script:
     - python -m unittest discover test -v
