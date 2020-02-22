@@ -30,12 +30,3 @@ class TestLoad(TestCase):
         lista = [1,2,3,4]
         self.load_balancer.begin_process()
         self.assertIsInstance(self.load_balancer.ticks, list)
-
-        # self.open_machines = []
-        # self.ticks = None
-        # self.ttask = None
-        # self.umax = None
-        # self.input_file_name = "input.txt"
-        # self.output_file_name = "output.txt"
-        # self.total_cost = 0
-        # self.last_machine_id = 0
