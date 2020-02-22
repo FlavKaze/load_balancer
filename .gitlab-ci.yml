@@ -12,10 +12,10 @@ adjusting:
   stage: adjusting
   script:
     - pip install pycodestyle pydocstyle
-    - pycodestyle .
-    - pydocstyle .
+    - pycodestyle . --exclude='test/'
+    - pydocstyle . --exclude='test/'
     
 run_test:
   stage: run_test
   script:
-    - python3 -m unittest discover test -v --exclude='test/'
+    - python3 -m unittest discover test -v
