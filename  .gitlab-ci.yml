@@ -2,7 +2,7 @@ image: python:latest
 
 stages:
   - adjusting
-  - test
+  - run_test
 
 before_script:
   - apt update -y
@@ -18,4 +18,4 @@ adjusting:
 run_test:
   stage: run_test
   script:
-    - python -m unittest discover test -v
+    - python3 -m unittest discover test -v
