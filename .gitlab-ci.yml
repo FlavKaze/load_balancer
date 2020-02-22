@@ -12,8 +12,8 @@ adjusting:
   stage: adjusting
   script:
     - pip install pycodestyle pydocstyle
-    - pycodestyle . --exclude='test/'
-    - pydocstyle . --exclude='test/'
+    - pycodestyle load_balancer.py
+    - pydocstyle load_balancer.py
     
 run_test:
   stage: run_test
