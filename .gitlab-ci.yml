@@ -18,4 +18,4 @@ adjusting:
 run_test:
   stage: run_test
   script:
-    - python3 -m unittest discover test -v
+    - python3 -m unittest discover test -v --exclude='test/'

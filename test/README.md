@@ -1,2 +1,2 @@
 Para executar os testes unitários do projeto basta executar o comando abaixo na raiz do projeto:
-python -m unittest discover test -v
+python3 -m unittest discover test -v
